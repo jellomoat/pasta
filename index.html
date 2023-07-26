@@ -3023,15 +3023,17 @@ vertical-align: -.125em;
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installation-quickstart" id="toc-installation-quickstart" class="nav-link active" data-scroll-target="#installation-quickstart">Installation &amp; Quickstart</a>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#get-structured-data-from-creepypasta.com" id="toc-get-structured-data-from-creepypasta.com" class="nav-link" data-scroll-target="#get-structured-data-from-creepypasta.com">Get structured data from Creepypasta.com</a>
   <ul class="collapse">
-  <li><a href="#install-package" id="toc-install-package" class="nav-link" data-scroll-target="#install-package">Install package</a></li>
-  <li><a href="#get-structured-data-from-creepypasta.com" id="toc-get-structured-data-from-creepypasta.com" class="nav-link" data-scroll-target="#get-structured-data-from-creepypasta.com">Get structured data from Creepypasta.com</a></li>
-  <li><a href="#example-usage" id="toc-example-usage" class="nav-link" data-scroll-target="#example-usage">Example usage</a></li>
+  <li><a href="#get_all_list_pagescplmanager" id="toc-get_all_list_pagescplmanager" class="nav-link" data-scroll-target="#get_all_list_pagescplmanager">✨ <code>get_all_list_pages(cplmanager)</code></a></li>
+  <li><a href="#get_stories_from_listings_dirpathdir_path" id="toc-get_stories_from_listings_dirpathdir_path" class="nav-link" data-scroll-target="#get_stories_from_listings_dirpathdir_path">✨ <code>get_stories_from_listings_dirpath(dir_path)</code></a></li>
   </ul></li>
-  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a>
+  <li><a href="#simplest-usage" id="toc-simplest-usage" class="nav-link" data-scroll-target="#simplest-usage">Simplest Usage</a></li>
+  <li><a href="#util-classes" id="toc-util-classes" class="nav-link" data-scroll-target="#util-classes">Util Classes</a>
   <ul class="collapse">
-  <li><a href="#example-usage-1" id="toc-example-usage-1" class="nav-link" data-scroll-target="#example-usage-1">Example Usage</a></li>
+  <li><a href="#from-autobrowse-pasta-listings.py" id="toc-from-autobrowse-pasta-listings.py" class="nav-link" data-scroll-target="#from-autobrowse-pasta-listings.py">from <code>autobrowse-pasta-listings.py</code></a></li>
+  <li><a href="#from-pasta-stories.py" id="toc-from-pasta-stories.py" class="nav-link" data-scroll-target="#from-pasta-stories.py">from <code>pasta-stories.py</code></a></li>
   </ul></li>
   <li><a href="#data-exports" id="toc-data-exports" class="nav-link" data-scroll-target="#data-exports">Data Exports</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
@@ -3040,7 +3042,7 @@ vertical-align: -.125em;
   <li><a href="#getting-stories-from-listings" id="toc-getting-stories-from-listings" class="nav-link" data-scroll-target="#getting-stories-from-listings">Getting stories from listings</a></li>
   <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">Source code</a></li>
   <li><a href="#questions-package-could-help-answer" id="toc-questions-package-could-help-answer" class="nav-link" data-scroll-target="#questions-package-could-help-answer">Questions Package Could Help Answer</a></li>
-  <li><a href="#how-this-came-to-exist" id="toc-how-this-came-to-exist" class="nav-link" data-scroll-target="#how-this-came-to-exist">How this came to exist</a></li>
+  <li><a href="#how-this-came-into-existence" id="toc-how-this-came-into-existence" class="nav-link" data-scroll-target="#how-this-came-into-existence">How this came into existence</a></li>
   <li><a href="#questions-suggestions-hellos-etc." id="toc-questions-suggestions-hellos-etc." class="nav-link" data-scroll-target="#questions-suggestions-hellos-etc.">Questions, Suggestions, Hellos, Etc.</a></li>
   </ul></li>
   <li><a href="#example-plots" id="toc-example-plots" class="nav-link" data-scroll-target="#example-plots">Example Plots</a></li>
@@ -3070,57 +3072,120 @@ vertical-align: -.125em;
 
 <p>Package to get up-to-date* structured data from <code>https://www.creepypasta.com/</code>.</p>
 <p>Bulk exports periodically made <a href="#data-exports">available below</a>.</p>
-<section id="installation-quickstart" class="level2">
-<h2 class="anchored" data-anchor-id="installation-quickstart">Installation &amp; Quickstart</h2>
-<section id="install-package" class="level3">
-<h3 class="anchored" data-anchor-id="install-package">Install package</h3>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <p>Using pip</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install creepypasta-util</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>From source</p>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from source</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="get-structured-data-from-creepypasta.com" class="level3">
-<h3 class="anchored" data-anchor-id="get-structured-data-from-creepypasta.com">Get structured data from Creepypasta.com</h3>
-<p><code>from creepypasta-util import StoryListingsParser, CreepyPastaGetter, CreepyPastaSoupParser, get_stories_from_listings_dirpath</code></p>
-<p><code>get_all_list_pages</code></p>
-<p>This function:<br> - Clicks through creepypasta.com’s archive of stories using Selenium<br> - Saves each list of stories (urls) to disk<br></p>
-<p><code>get_stories_from_listings_dirpath</code></p>
-<p>This function:<br> - Parses the list-pages using <code>StoryListingsParser</code><br> - Gets or fetch all stories, saving to disk as needed using <code>CreepyPastaGetter</code><br> - Parses stories using <code>CreepyPastaSoupParser</code><br> - Returns structured output w/ story content and metadata<br></p>
+<section id="get-structured-data-from-creepypasta.com" class="level2">
+<h2 class="anchored" data-anchor-id="get-structured-data-from-creepypasta.com">Get structured data from Creepypasta.com</h2>
+<section id="get_all_list_pagescplmanager" class="level3">
+<h3 class="anchored" data-anchor-id="get_all_list_pagescplmanager">✨ <code>get_all_list_pages(cplmanager)</code></h3>
+<p>This function:<br> - <code>cplmanager</code>: an instance of <code>CPLSeleniumManager</code> - Clicks through creepypasta.com’s archive of stories using Selenium<br> - Saves each list of stories (urls) to disk, default <code>list-pages/</code><br></p>
 </section>
-<section id="example-usage" class="level3">
-<h3 class="anchored" data-anchor-id="example-usage">Example usage</h3>
-<p>(load into dataframe)</p>
-<pre><code>stories_dict_list = get_stories_from_listings_dirpath(&quot;./list-pages/&quot;)
+<section id="get_stories_from_listings_dirpathdir_path" class="level3">
+<h3 class="anchored" data-anchor-id="get_stories_from_listings_dirpathdir_path">✨ <code>get_stories_from_listings_dirpath(dir_path)</code></h3>
+<p>This function:<br> - Takes path to dir with listings (<code>dir_path</code>) - Parses the list-pages using <code>StoryListingsParser</code><br> - Gets or fetch all stories, saving to disk as needed using <code>CreepyPastaGetter</code><br> - Parses stories using <code>CreepyPastaSoupParser</code><br> - Returns structured output w/ story content and metadata<br></p>
+</section>
+</section>
+<section id="simplest-usage" class="level2">
+<h2 class="anchored" data-anchor-id="simplest-usage">Simplest Usage</h2>
+<p>Opens browser, navigates to Creepypasta archive, iterates through and saves to disk each page of <a href="https://www.creepypasta.com/archive/">stories list</a>.</p>
+<pre><code>from creepypasta-util import CPLSeleniumManager, get_all_list_pages
+
+cplm = CPLSeleniumManager()
+cplm.close_popups()
+get_all_list_pages(cplm)</code></pre>
+<p>Navigates through list pages retrieved with <code>CPLSeleniumManager</code> (above) to retrieve stories and load into a dataframe using <code>requests</code> module</p>
+<pre><code>import pandas as pd
+
+from creepypasta-util import get_stories_from_listings_dirpath
+
+stories_dict_list = get_stories_from_listings_dirpath(&quot;./list-pages/&quot;)
 stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 </section>
+<section id="util-classes" class="level2">
+<h2 class="anchored" data-anchor-id="util-classes">Util Classes</h2>
+<section id="from-autobrowse-pasta-listings.py" class="level3">
+<h3 class="anchored" data-anchor-id="from-autobrowse-pasta-listings.py">from <code>autobrowse-pasta-listings.py</code></h3>
+<section id="cplseleniummanager" class="level4">
+<h4 class="anchored" data-anchor-id="cplseleniummanager"><code>CPLSeleniumManager</code></h4>
+<p>Object to hold/access Selenium webdriver instance and set up destination directories for scraper</p>
+<p>Methods: - <code>__init__(self)</code> - Calls <code>setup_fetch_dirs(self)</code> to create directories for story-lists, stories, and test files if they don’t yet exist - Opens a new browser and returns webdriver instance - Loads creepypasta archive using Selenium - <code>open_driver(self)</code> - this is called during <code>__init__</code>, but can also be executed on its own to reset the browser - Closes last open driver if needed - Opens a new browser - <code>close_popups(self)</code> - Closes all popups that are visible on the page - Runs twice, to handle ads with delayed loading - Uses <code>CPLSeleniumAdHandler</code>’s methods</p>
 </section>
-<section id="classes" class="level2">
-<h2 class="anchored" data-anchor-id="classes">Classes</h2>
-<p><code>CPLSeleniumManager</code> <br> Methods:</p>
-<p><code>CPLSeleniumAdHandler</code> <br> Methods:</p>
-<p><code>CPLSeleniumPageNav</code> <br> Methods:</p>
-<p><code>StoryListingsParser</code> <br></p>
+<section id="cplseleniumadhandler" class="level4">
+<h4 class="anchored" data-anchor-id="cplseleniumadhandler"><code>CPLSeleniumAdHandler</code></h4>
+<p>Container for functions that close popups and ads</p>
+<p>Methods: - <code>close_first_popups(cls, driver)</code> - <code>driver</code>: webdriver instance - Closes popups that first appear as creepypasta page is loading</p>
+<ul>
+<li><code>close_some_ads(cls, driver)</code>
+<ul>
+<li><code>driver</code>: webdriver instance</li>
+<li>Closes more ads that render on the page after initial load</li>
+<li>May want to run this on its own again for more delayed ads</li>
+</ul></li>
+</ul>
+</section>
+<section id="cplseleniumpagenav" class="level4">
+<h4 class="anchored" data-anchor-id="cplseleniumpagenav"><code>CPLSeleniumPageNav</code></h4>
+<p>Container for functions that navigate and save individual pages.</p>
+<p>Methods: - <code>go_to_next_page(driver)</code> - <code>driver</code>: webdriver instance - Navigates to next page - In a loop, stops advancing pages on final page - <code>reset_to_first_page(driver)</code> - <code>driver</code>: webdriver instance - Navigates back to first page - <code>save_current_page(driver, dest_dir)</code> - <code>driver</code>: webdriver instance - <code>dest_dir</code>: directory files are saved to - Saves <code>driver.page_source</code> for rendered page - Default saves to <code>./list-pages/</code>, <code>./story-pages/</code>, <code>./test/</code></p>
+</section>
+</section>
+<section id="from-pasta-stories.py" class="level3">
+<h3 class="anchored" data-anchor-id="from-pasta-stories.py">from <code>pasta-stories.py</code></h3>
+<section id="storylistingsparser" class="level4">
+<h4 class="anchored" data-anchor-id="storylistingsparser"><code>StoryListingsParser</code></h4>
+<p>Container for methods parsing list-pages</p>
+<p>Methods: - <code>write_json_of_story_links_dicts(cls, dir_path)</code> - <code>dir_path</code>: directory with page_source files from <a href="https://www.creepypasta.com/archive/?_orderby=date">Creepypasta archive</a> - Gets all story links using <code>get_all_story_links</code> - Creates JSON file using <code>output_json</code> - <code>get_all_story_links(cls, dir_path)</code> - <code>dir_path</code>: directory with page_source files from <a href="https://www.creepypasta.com/archive/?_orderby=date">Creepypasta archive</a> - Gets all files in <code>dir_path</code> directory - Returns json-ready dict with all story links, by list page, using <code>parse_listings_get_story_links_per_page</code></p>
+<p>Helper methods not listed: <code>parse_listings_get_story_links_per_page</code></p>
+</section>
+<section id="pagefetcherutils" class="level4">
+<h4 class="anchored" data-anchor-id="pagefetcherutils"><code>PageFetcherUtils</code></h4>
+<p>Container for general utils non-specific to project</p>
+<p>Methods: - <code>fetch_page(cls, url)</code> - This was needed to get ratings/reviews that are live-loaded on site - <code>get_html(cls, fpath)</code> - <code>fpath</code>: path to file with saved <code>page_source</code> - Opens and reads file to HTML - <code>get_all_files(cls, dir_path, debug)</code> - <code>dir_path</code>: path to target directory - Will list all files in specified directory</p>
+</section>
+<section id="creepypastagetter" class="level4">
+<h4 class="anchored" data-anchor-id="creepypastagetter"><code>CreepyPastaGetter</code></h4>
+<p>Gets/fetches stories from site</p>
 <p>Methods:</p>
-<p><code>CreepyPastaGetter</code></p>
-<p>Methods:</p>
-<p><code>CreepyPastaSoupParser</code></p>
-<p>Methods:</p>
-<section id="example-usage-1" class="level3">
-<h3 class="anchored" data-anchor-id="example-usage-1">Example Usage</h3>
-<p><code>from creepypasta-util import StoryListingsParser, CreepyPastaGetter, CreepyPastaSoupParser, get_stories_from_listings_dirpath</code></p>
+<ul>
+<li><code>get_stories_list_dict(cls, stories_list_fpath)</code>
+<ul>
+<li><code>stories_list_fpath</code>: path to JSON file</li>
+<li>Opens and loads JSON file to dict</li>
+</ul></li>
+<li><code>fetch_pasta_pages(cls, list_page, links_list)</code>
+<ul>
+<li><code>list_page</code>: specific page # of the Creepypasta site archive</li>
+<li><code>links_list</code>: links on that page to retrieve</li>
+<li>Using a list of links, finds/fetches story pages and writes to disk</li>
+<li>Logs fetching history using <code>story_writing_log</code><br></li>
+</ul></li>
+</ul>
+<p>Helper methods not listed: <code>error_writing_log(cls, exception, listing_fname, dest_fname, logname)</code>, <code>story_writing_log(cls, listing_fname, dest_fname, logname)</code></p>
+</section>
+<section id="creepypastasoupparser" class="level4">
+<h4 class="anchored" data-anchor-id="creepypastasoupparser"><code>CreepyPastaSoupParser</code></h4>
+<p>Methods for parsing individual stories and all stories</p>
+<p>Core methods: - <code>__init__(self, fpath_or_link, is_fpath)</code> - <code>get_soup(self, is_fpath)</code> - <code>get_all_stories(cls, stories_path)</code> - <code>parse_story(self)</code> - <span class="citation" data-cites="property">@property</span> <code>story_link(self)</code> - <span class="citation" data-cites="property">@property</span> <code>story_uuid(self)</code> - <span class="citation" data-cites="property">@property</span> <code>published_date(self)</code> - <span class="citation" data-cites="property">@property</span> <code>reading_time_min(self)</code> - <span class="citation" data-cites="property">@property</span> <code>story_content(self)</code> - <span class="citation" data-cites="property">@property</span> <code>author_content(self)</code><br></p>
+<p>Helper methods not listed: <code>get_ratings_and_votes(cls, story_uuid)</code>,<code>__get_tags(self, tag)</code>, <code>__get_categories(self, tag)</code>, <code>__get_story_and_author_content(self)</code></p>
+</section>
 </section>
 </section>
 <section id="data-exports" class="level2">
 <h2 class="anchored" data-anchor-id="data-exports">Data Exports</h2>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JSON</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JSON</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSV</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSV</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="methodology" class="level2">
@@ -3158,8 +3223,8 @@ stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 </ul>
 </section>
 </section>
-<section id="how-this-came-to-exist" class="level3">
-<h3 class="anchored" data-anchor-id="how-this-came-to-exist">How this came to exist</h3>
+<section id="how-this-came-into-existence" class="level3">
+<h3 class="anchored" data-anchor-id="how-this-came-into-existence">How this came into existence</h3>
 <p>I wanted to write a story on creepypasta but spent nearly all my time this cycle getting and cleaning the data. I’m sharing this as a data export and package because I think it’s an interesting corpus to explore and because it took awhile to write utils to actually pull/scrape data off the site.</p>
 <p>I’m planning to occasionally push up updated data dumps. However, this package can provide a quick means to get up-to-date creepypasta whenever.</p>
 </section>
@@ -3167,9 +3232,6 @@ stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 <h3 class="anchored" data-anchor-id="questions-suggestions-hellos-etc.">Questions, Suggestions, Hellos, Etc.</h3>
 <p>Hi!  Please send me a message using <a href="https://www.jellomoat.com/contact">this webform</a>.</p>
 <p>👻 w/ ✨ @ <a href="https://ledeprogram.com/">Lede</a></p>
-<section id="original-pasta-authors" class="level4">
-<h4 class="anchored" data-anchor-id="original-pasta-authors">Original Pasta Authors</h4>
-</section>
 </section>
 </section>
 <section id="example-plots" class="level2">

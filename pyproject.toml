@@ -1,0 +1,29 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "beautifulsoup4>=4.12.2",
+    "lxml==4.9.3",
+    "requests==2.31.0",
+    "pandas==2.0.3",
+    "pathlib==1.0.1",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "creepypasta-util"
+version = "0.0.1"
+authors = [
+  { name="Stephanie Andrews", email="jellomoat@gmail.com" },
+]
+description = "A small package to get up-to-date* structured data from `https://www.creepypasta.com/`."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jellomoat/pasta"
+"Bug Tracker" = "https://github.com/jellomoat/pasta/issues"

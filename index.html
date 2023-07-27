@@ -3070,7 +3070,7 @@ vertical-align: -.125em;
 
 </header>
 
-<p>Package to get up-to-date* structured data from <code>https://www.creepypasta.com/</code>.</p>
+<p>Package to crawl <a href="https://www.creepypasta.com/">CreepyPasta</a> and parse into structured data.</p>
 <p>Bulk exports periodically made <a href="#data-exports">available below</a>.</p>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
@@ -3087,28 +3087,44 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="get-structured-data-from-creepypasta.com">Get structured data from Creepypasta.com</h2>
 <section id="get_all_list_pagescplmanager" class="level3">
 <h3 class="anchored" data-anchor-id="get_all_list_pagescplmanager">✨ <code>get_all_list_pages(cplmanager)</code></h3>
-<p>This function:<br> - <code>cplmanager</code>: an instance of <code>CPLSeleniumManager</code> - Clicks through creepypasta.com’s archive of stories using Selenium<br> - Saves each list of stories (urls) to disk, default <code>list-pages/</code><br></p>
+<p>This function:</p>
+<ul>
+<li><code>cplmanager</code>: an instance of <code>CPLSeleniumManager</code></li>
+<li>Clicks through creepypasta.com’s archive of stories using Selenium</li>
+<li>Saves each list of stories (urls) to disk, default <code>list-pages/</code></li>
+</ul>
 </section>
 <section id="get_stories_from_listings_dirpathdir_path" class="level3">
 <h3 class="anchored" data-anchor-id="get_stories_from_listings_dirpathdir_path">✨ <code>get_stories_from_listings_dirpath(dir_path)</code></h3>
-<p>This function:<br> - Takes path to dir with listings (<code>dir_path</code>) - Parses the list-pages using <code>StoryListingsParser</code><br> - Gets or fetch all stories, saving to disk as needed using <code>CreepyPastaGetter</code><br> - Parses stories using <code>CreepyPastaSoupParser</code><br> - Returns structured output w/ story content and metadata<br></p>
+<p>This function:</p>
+<ul>
+<li>Takes path to dir with listings (<code>dir_path</code>)</li>
+<li>Parses the list-pages using <code>StoryListingsParser</code></li>
+<li>Gets or fetch all stories, saving to disk as needed using <code>CreepyPastaGetter</code></li>
+<li>Parses stories using <code>CreepyPastaSoupParser</code></li>
+<li>Returns structured output w/ story content and metadata</li>
+</ul>
 </section>
 </section>
 <section id="simplest-usage" class="level2">
 <h2 class="anchored" data-anchor-id="simplest-usage">Simplest Usage</h2>
 <p>Opens browser, navigates to Creepypasta archive, iterates through and saves to disk each page of <a href="https://www.creepypasta.com/archive/">stories list</a>.</p>
-<pre><code>from creepypasta-util import CPLSeleniumManager, get_all_list_pages
-
-cplm = CPLSeleniumManager()
-cplm.close_popups()
-get_all_list_pages(cplm)</code></pre>
-<p>Navigates through list pages retrieved with <code>CPLSeleniumManager</code> (above) to retrieve stories and load into a dataframe using <code>requests</code> module</p>
-<pre><code>import pandas as pd
-
-from creepypasta-util import get_stories_from_listings_dirpath
-
-stories_dict_list = get_stories_from_listings_dirpath(&quot;./list-pages/&quot;)
-stories_df = pd.DataFrame(stories_dict_list)</code></pre>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from creepypasta-util import CPLSeleniumManager, get_all_list_pages</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># cplm = CPLSeleniumManager()</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># cplm.close_popups()</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get_all_list_pages(cplm)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Navigates through list pages retrieved with <code>CPLSeleniumManager</code> (above) to retrieve stories and load into a dataframe using <code>requests</code> module.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import pandas as pd</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># from creepypasta-util import get_stories_from_listings_dirpath</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># stories_dict_list = get_stories_from_listings_dirpath(&quot;./list-pages/&quot;)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># stories_df = pd.DataFrame(stories_dict_list)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="util-classes" class="level2">
 <h2 class="anchored" data-anchor-id="util-classes">Util Classes</h2>
@@ -3116,14 +3132,39 @@ stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 <h3 class="anchored" data-anchor-id="from-autobrowse-pasta-listings.py">from <code>autobrowse-pasta-listings.py</code></h3>
 <section id="cplseleniummanager" class="level4">
 <h4 class="anchored" data-anchor-id="cplseleniummanager"><code>CPLSeleniumManager</code></h4>
-<p>Object to hold/access Selenium webdriver instance and set up destination directories for scraper</p>
-<p>Methods: - <code>__init__(self)</code> - Calls <code>setup_fetch_dirs(self)</code> to create directories for story-lists, stories, and test files if they don’t yet exist - Opens a new browser and returns webdriver instance - Loads creepypasta archive using Selenium - <code>open_driver(self)</code> - this is called during <code>__init__</code>, but can also be executed on its own to reset the browser - Closes last open driver if needed - Opens a new browser - <code>close_popups(self)</code> - Closes all popups that are visible on the page - Runs twice, to handle ads with delayed loading - Uses <code>CPLSeleniumAdHandler</code>’s methods</p>
+<p>Object to hold/access Selenium webdriver instance and set up destination directories for scraper.</p>
+<p>Methods:</p>
+<ul>
+<li><code>__init__(self)</code>
+<ul>
+<li>Calls <code>setup_fetch_dirs(self)</code> to create directories for story-lists, stories, and test files if they don’t yet exist</li>
+<li>Opens a new browser and returns webdriver instance</li>
+<li>Loads creepypasta archive using Selenium</li>
+</ul></li>
+<li><code>open_driver(self)</code>
+<ul>
+<li>Called during <code>__init__</code>, but can also be executed on its own to reset the browser</li>
+<li>Closes last open driver if needed</li>
+<li>Opens a new browser</li>
+</ul></li>
+<li><code>close_popups(self)</code>
+<ul>
+<li>Closes all popups that are visible on the page</li>
+<li>Runs twice, to handle ads with delayed loading</li>
+<li>Uses <code>CPLSeleniumAdHandler</code>’s methods</li>
+</ul></li>
+</ul>
 </section>
 <section id="cplseleniumadhandler" class="level4">
 <h4 class="anchored" data-anchor-id="cplseleniumadhandler"><code>CPLSeleniumAdHandler</code></h4>
-<p>Container for functions that close popups and ads</p>
-<p>Methods: - <code>close_first_popups(cls, driver)</code> - <code>driver</code>: webdriver instance - Closes popups that first appear as creepypasta page is loading</p>
+<p>Container for functions that close popups and ads.</p>
+<p>Methods:</p>
 <ul>
+<li><code>close_first_popups(cls, driver)</code>
+<ul>
+<li><code>driver</code>: webdriver instance</li>
+<li>Closes popups that first appear as creepypasta page is loading</li>
+</ul></li>
 <li><code>close_some_ads(cls, driver)</code>
 <ul>
 <li><code>driver</code>: webdriver instance</li>
@@ -3135,25 +3176,75 @@ stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 <section id="cplseleniumpagenav" class="level4">
 <h4 class="anchored" data-anchor-id="cplseleniumpagenav"><code>CPLSeleniumPageNav</code></h4>
 <p>Container for functions that navigate and save individual pages.</p>
-<p>Methods: - <code>go_to_next_page(driver)</code> - <code>driver</code>: webdriver instance - Navigates to next page - In a loop, stops advancing pages on final page - <code>reset_to_first_page(driver)</code> - <code>driver</code>: webdriver instance - Navigates back to first page - <code>save_current_page(driver, dest_dir)</code> - <code>driver</code>: webdriver instance - <code>dest_dir</code>: directory files are saved to - Saves <code>driver.page_source</code> for rendered page - Default saves to <code>./list-pages/</code>, <code>./story-pages/</code>, <code>./test/</code></p>
+<p>Methods:</p>
+<ul>
+<li><code>go_to_next_page(driver)</code>
+<ul>
+<li><code>driver</code>: webdriver instance</li>
+<li>Navigates to next page</li>
+<li>In a loop, stops advancing pages on final page</li>
+</ul></li>
+<li><code>reset_to_first_page(driver)</code>
+<ul>
+<li><code>driver</code>: webdriver instance</li>
+<li>Navigates back to first page</li>
+</ul></li>
+<li><code>save_current_page(driver, dest_dir)</code>
+<ul>
+<li><code>driver</code>: webdriver instance</li>
+<li><code>dest_dir</code>: directory files are saved to</li>
+<li>Saves <code>driver.page_source</code> for rendered page</li>
+<li>Default saves to <code>./list-pages/</code>, <code>./story-pages/</code>, <code>./test/</code></li>
+</ul></li>
+</ul>
 </section>
 </section>
 <section id="from-pasta-stories.py" class="level3">
 <h3 class="anchored" data-anchor-id="from-pasta-stories.py">from <code>pasta-stories.py</code></h3>
 <section id="storylistingsparser" class="level4">
 <h4 class="anchored" data-anchor-id="storylistingsparser"><code>StoryListingsParser</code></h4>
-<p>Container for methods parsing list-pages</p>
-<p>Methods: - <code>write_json_of_story_links_dicts(cls, dir_path)</code> - <code>dir_path</code>: directory with page_source files from <a href="https://www.creepypasta.com/archive/?_orderby=date">Creepypasta archive</a> - Gets all story links using <code>get_all_story_links</code> - Creates JSON file using <code>output_json</code> - <code>get_all_story_links(cls, dir_path)</code> - <code>dir_path</code>: directory with page_source files from <a href="https://www.creepypasta.com/archive/?_orderby=date">Creepypasta archive</a> - Gets all files in <code>dir_path</code> directory - Returns json-ready dict with all story links, by list page, using <code>parse_listings_get_story_links_per_page</code></p>
+<p>Container for methods parsing list-pages.</p>
+<p>Methods:</p>
+<ul>
+<li><code>write_json_of_story_links_dicts(cls, dir_path)</code>
+<ul>
+<li><code>dir_path</code>: directory with page_source files from <a href="https://www.creepypasta.com/archive/?_orderby=date">Creepypasta archive</a></li>
+<li>Gets all story links using <code>get_all_story_links</code></li>
+<li>Creates JSON file using <code>output_json</code></li>
+</ul></li>
+<li><code>get_all_story_links(cls, dir_path)</code>
+<ul>
+<li><code>dir_path</code>: directory with page_source files from <a href="https://www.creepypasta.com/archive/?_orderby=date">Creepypasta archive</a></li>
+<li>Gets all files in <code>dir_path</code> directory</li>
+<li>Returns json-ready dict with all story links, by list page, using <code>parse_listings_get_story_links_per_page</code></li>
+</ul></li>
+</ul>
 <p>Helper methods not listed: <code>parse_listings_get_story_links_per_page</code></p>
 </section>
 <section id="pagefetcherutils" class="level4">
 <h4 class="anchored" data-anchor-id="pagefetcherutils"><code>PageFetcherUtils</code></h4>
-<p>Container for general utils non-specific to project</p>
-<p>Methods: - <code>fetch_page(cls, url)</code> - This was needed to get ratings/reviews that are live-loaded on site - <code>get_html(cls, fpath)</code> - <code>fpath</code>: path to file with saved <code>page_source</code> - Opens and reads file to HTML - <code>get_all_files(cls, dir_path, debug)</code> - <code>dir_path</code>: path to target directory - Will list all files in specified directory</p>
+<p>Container for general utils non-specific to project.</p>
+<p>Methods:</p>
+<ul>
+<li><code>fetch_page(cls, url)</code>
+<ul>
+<li>This was needed to get ratings/reviews that are live-loaded on site</li>
+</ul></li>
+<li><code>get_html(cls, fpath)</code>
+<ul>
+<li><code>fpath</code>: path to file with saved <code>page_source</code></li>
+<li>Opens and reads file to HTML</li>
+</ul></li>
+<li><code>get_all_files(cls, dir_path, debug)</code>
+<ul>
+<li><code>dir_path</code>: path to target directory</li>
+<li>Will list all files in specified directory</li>
+</ul></li>
+</ul>
 </section>
 <section id="creepypastagetter" class="level4">
 <h4 class="anchored" data-anchor-id="creepypastagetter"><code>CreepyPastaGetter</code></h4>
-<p>Gets/fetches stories from site</p>
+<p>Gets/fetches stories from site.</p>
 <p>Methods:</p>
 <ul>
 <li><code>get_stories_list_dict(cls, stories_list_fpath)</code>
@@ -3166,15 +3257,27 @@ stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 <li><code>list_page</code>: specific page # of the Creepypasta site archive</li>
 <li><code>links_list</code>: links on that page to retrieve</li>
 <li>Using a list of links, finds/fetches story pages and writes to disk</li>
-<li>Logs fetching history using <code>story_writing_log</code><br></li>
+<li>Logs fetching history using <code>story_writing_log</code></li>
 </ul></li>
 </ul>
 <p>Helper methods not listed: <code>error_writing_log(cls, exception, listing_fname, dest_fname, logname)</code>, <code>story_writing_log(cls, listing_fname, dest_fname, logname)</code></p>
 </section>
 <section id="creepypastasoupparser" class="level4">
 <h4 class="anchored" data-anchor-id="creepypastasoupparser"><code>CreepyPastaSoupParser</code></h4>
-<p>Methods for parsing individual stories and all stories</p>
-<p>Core methods: - <code>__init__(self, fpath_or_link, is_fpath)</code> - <code>get_soup(self, is_fpath)</code> - <code>get_all_stories(cls, stories_path)</code> - <code>parse_story(self)</code> - <span class="citation" data-cites="property">@property</span> <code>story_link(self)</code> - <span class="citation" data-cites="property">@property</span> <code>story_uuid(self)</code> - <span class="citation" data-cites="property">@property</span> <code>published_date(self)</code> - <span class="citation" data-cites="property">@property</span> <code>reading_time_min(self)</code> - <span class="citation" data-cites="property">@property</span> <code>story_content(self)</code> - <span class="citation" data-cites="property">@property</span> <code>author_content(self)</code><br></p>
+<p>Methods for parsing individual stories and all stories.</p>
+<p>Methods:</p>
+<ul>
+<li><code>__init__(self, fpath_or_link, is_fpath)</code></li>
+<li><code>get_soup(self, is_fpath)</code></li>
+<li><code>get_all_stories(cls, stories_path)</code></li>
+<li><code>parse_story(self)</code></li>
+<li><span class="citation" data-cites="property">@property</span> <code>story_link(self)</code></li>
+<li><span class="citation" data-cites="property">@property</span> <code>story_uuid(self)</code></li>
+<li><span class="citation" data-cites="property">@property</span> <code>published_date(self)</code></li>
+<li><span class="citation" data-cites="property">@property</span> <code>reading_time_min(self)</code></li>
+<li><span class="citation" data-cites="property">@property</span> <code>story_content(self)</code></li>
+<li><span class="citation" data-cites="property">@property</span> <code>author_content(self)</code></li>
+</ul>
 <p>Helper methods not listed: <code>get_ratings_and_votes(cls, story_uuid)</code>,<code>__get_tags(self, tag)</code>, <code>__get_categories(self, tag)</code>, <code>__get_story_and_author_content(self)</code></p>
 </section>
 </section>
@@ -3241,32 +3344,46 @@ stories_df = pd.DataFrame(stories_dict_list)</code></pre>
 <h2 class="anchored" data-anchor-id="creepypasta-irl">Creepypasta IRL</h2>
 <section id="slender-man" class="level4">
 <h4 class="anchored" data-anchor-id="slender-man">Slender Man</h4>
-<p>Tech Crunch <br> <a href="https://techcrunch.com/2014/06/30/the-story-of-slenderman-the-internets-own-monster/">The Story Of Slenderman, The Internet’s Own Monster</a></p>
-<p>Rolling Stone <br> <a href="https://www.rollingstone.com/culture/culture-news/slender-man-from-horror-meme-to-inspiration-for-murder-248430/">Slender Man: From Horror Meme to Inspiration for Murder</a></p>
-<p>Refinery29 <br> <a href="https://www.refinery29.com/en-us/2017/04/148521/creepypasta-meme-slender-man-meaning">The Bizarre Backstory Of The Slender Man Meme That Terrorized The Nation</a></p>
-<p>Bustle <br> <a href="https://www.bustle.com/articles/38857-girl-attempts-murder-for-slender-man-this-time-by-setting-house-on-fire">Slender Man Inspires Another Terrible Act</a></p>
-<p>Washington Post <br> <a href="https://www.washingtonpost.com/news/the-intersect/wp/2014/06/10/dont-fear-the-slender-man/">Don’t Fear the Slender Man</a></p>
-<p>NBC News <br> <a href="https://www.nbcnews.com/storyline/slender-man-stabbing/fantasy-slender-man-meme-inspires-horrific-wisconsin-stabbing-n121311">Fantasy ‘Slender Man’ Meme Inspires Horrific Wisconsin Stabbing</a></p>
-<p>CNN <br> <a href="https://www.cnn.com/2014/06/03/justice/wisconsin-girl-stabbed/index.html">12-year-old Wisconsin girl stabbed 19 times; friends arrested</a></p>
+<p>Tech Crunch<br>
+<a href="https://techcrunch.com/2014/06/30/the-story-of-slenderman-the-internets-own-monster/">The Story Of Slenderman, The Internet’s Own Monster</a></p>
+<p>Rolling Stone<br>
+<a href="https://www.rollingstone.com/culture/culture-news/slender-man-from-horror-meme-to-inspiration-for-murder-248430/">Slender Man: From Horror Meme to Inspiration for Murder</a></p>
+<p>Refinery29<br>
+<a href="https://www.refinery29.com/en-us/2017/04/148521/creepypasta-meme-slender-man-meaning">The Bizarre Backstory Of The Slender Man Meme That Terrorized The Nation</a></p>
+<p>Bustle<br>
+<a href="https://www.bustle.com/articles/38857-girl-attempts-murder-for-slender-man-this-time-by-setting-house-on-fire">Slender Man Inspires Another Terrible Act</a></p>
+<p>Washington Post<br>
+<a href="https://www.washingtonpost.com/news/the-intersect/wp/2014/06/10/dont-fear-the-slender-man/">Don’t Fear the Slender Man</a></p>
+<p>NBC News<br>
+<a href="https://www.nbcnews.com/storyline/slender-man-stabbing/fantasy-slender-man-meme-inspires-horrific-wisconsin-stabbing-n121311">Fantasy ‘Slender Man’ Meme Inspires Horrific Wisconsin Stabbing</a></p>
+<p>CNN<br>
+<a href="https://www.cnn.com/2014/06/03/justice/wisconsin-girl-stabbed/index.html">12-year-old Wisconsin girl stabbed 19 times; friends arrested</a></p>
 </section>
 <section id="clowns" class="level4">
 <h4 class="anchored" data-anchor-id="clowns">Clowns</h4>
-<p>Herald Tribune <br> <a href="https://www.heraldtribune.com/story/news/local/sarasota/2016/10/04/anderson-wrinkles-creepy-clown-hiding-under-bed/2593097007/">Anderson: Wrinkles, the creepy clown hiding under the bed</a></p>
-<p>NY Times <br> <a href="https://www.nytimes.com/roomfordebate/2016/10/14/whats-behind-the-spreading-creepy-clown-hysteria/sinister-clown-sightings-are-a-manifestation-of-fear">Sinister Clown Sightings Are a Manifestation of Fear</a></p>
-<p>NY Times <br> <a href="https://www.nytimes.com/2016/09/30/us/creepy-clown-hoaxes-arrests.html">Creepy Clown Hoaxes Lead to 12 Arrests in Multiple States</a></p>
-<p>CBS News <br> <a href="https://www.cbsnews.com/news/indiana-girl-12-said-clown-told-her-to-kill-stepmom/">Indiana girl, 12, said “clown” told her to kill stepmom</a></p>
+<p>Herald Tribune<br>
+<a href="https://www.heraldtribune.com/story/news/local/sarasota/2016/10/04/anderson-wrinkles-creepy-clown-hiding-under-bed/2593097007/">Anderson: Wrinkles, the creepy clown hiding under the bed</a></p>
+<p>NY Times<br>
+<a href="https://www.nytimes.com/roomfordebate/2016/10/14/whats-behind-the-spreading-creepy-clown-hysteria/sinister-clown-sightings-are-a-manifestation-of-fear">Sinister Clown Sightings Are a Manifestation of Fear</a></p>
+<p>NY Times<br>
+<a href="https://www.nytimes.com/2016/09/30/us/creepy-clown-hoaxes-arrests.html">Creepy Clown Hoaxes Lead to 12 Arrests in Multiple States</a></p>
+<p>CBS News<br>
+<a href="https://www.cbsnews.com/news/indiana-girl-12-said-clown-told-her-to-kill-stepmom/">Indiana girl, 12, said “clown” told her to kill stepmom</a></p>
 </section>
 <section id="momo" class="level4">
 <h4 class="anchored" data-anchor-id="momo">Momo</h4>
-<p>NY Times <br> <a href="https://www.nytimes.com/2019/03/02/style/momo-mania-hoax.html">Momo Is As Real As We’ve Made Her</a></p>
+<p>NY Times<br>
+<a href="https://www.nytimes.com/2019/03/02/style/momo-mania-hoax.html">Momo Is As Real As We’ve Made Her</a></p>
 </section>
 <section id="huggy-wuggy" class="level4">
 <h4 class="anchored" data-anchor-id="huggy-wuggy">Huggy Wuggy</h4>
-<p>Rolling Stone <br> <a href="https://www.rollingstone.com/culture/culture-news/huggy-wuggy-poppy-playtime-tiktok-youtube-panic-1334925/">Parents Are Freaking Out Over Huggy Wuggy, a Janky Blue Bear With Razor-Sharp Teeth</a></p>
+<p>Rolling Stone<br>
+<a href="https://www.rollingstone.com/culture/culture-news/huggy-wuggy-poppy-playtime-tiktok-youtube-panic-1334925/">Parents Are Freaking Out Over Huggy Wuggy, a Janky Blue Bear With Razor-Sharp Teeth</a></p>
 </section>
 <section id="black-eyed-people" class="level4">
 <h4 class="anchored" data-anchor-id="black-eyed-people">Black-Eyed People</h4>
-<p>Huffington Post <br> <a href="https://www.huffingtonpost.co.uk/2014/09/29/mystery-black-eyed-child-sightings-cannock-chase-_n_5898988.html">Mystery Of Ghostly Black-Eyed Child Sightings On Cannock Chase</a></p>
+<p>Huffington Post<br>
+<a href="https://www.huffingtonpost.co.uk/2014/09/29/mystery-black-eyed-child-sightings-cannock-chase-_n_5898988.html">Mystery Of Ghostly Black-Eyed Child Sightings On Cannock Chase</a></p>
 </section>
 </section>
 <section id="credits" class="level2">

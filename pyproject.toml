@@ -15,7 +15,8 @@ version = "0.0.1"
 authors = [
   { name="Stephanie Andrews", email="jellomoat@gmail.com" },
 ]
-description = "A small package to get up-to-date* structured data from `https://www.creepypasta.com/`."
+description = "A small package to crawl CreepyPasta and parse into structured data."
+
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [

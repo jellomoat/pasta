@@ -6,7 +6,7 @@ requires = [
     "requests==2.31.0",
     "pandas==2.0.3",
     "pathlib==1.0.1",
-    "chromedriver-binary-auto>=0.2.6",
+    "chromedriver-binary-auto>=0.3.0",
     "selenium==4.10.0",
     "selenium-wire==5.1.0",
     "tqdm==4.65.0"
@@ -15,7 +15,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "creepypasta"
-version = "0.0.4"
+version = "0.0.5"
 authors = [
   { name="Stephanie Andrews", email="jellomoat@gmail.com" },
 ]
